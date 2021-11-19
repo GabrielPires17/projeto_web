@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    margin: 0px;
+    height: 300vh;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: 5vh;
+    background-color: #EEE;
+}
+
+header #slogan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40%;
+    background-color: #333;
+}
+
+header div#slogan span {
+    font-weight: bolder;
+    color: white;
+}
+
+header div#menu {
+    display: flex;
+    flex-direction: row;
+    height: 60%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header #logo {
+    height: 10vh;
+    width: 5vw;
+    padding-left: 8vw;
+}
+
+header #options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+header #options a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 100%;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    transition: all .2s ease-in-out;
+}
+
+header #options a:hover {
+    background-color: #CCC;
+}
+
+header #options span {
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: larger;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+header div#menu div#social_media {
+    display: flex;
+    width: 12vw;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#social_media a {
+    text-decoration: none;
+    color: black;
+}

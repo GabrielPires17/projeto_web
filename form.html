@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <form>
+        <legend>Signup</legend>
+        <div class="mb-3">
+            <label for="InputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control input-form" id="InputEmail">
+        </div>
+        <div class="mb-3">
+            <label for="InputNome" class="form-label">Nome</label>
+            <input type="text" class="form-control input-form" id="InputNome">
+        </div>
+        <div class="mb-3">
+            <label for="InputSenha" class="form-label">Senha</label>
+            <input type="password" class="form-control input-form" id="InputSenha">
+        </div>
+        <button type="button" class="btn btn-primary" id="btn-submit">Gravar</button>
+    </form>
+    <script>
+        const btn_submit = document.getElementById("btn-submit");
+        btn_submit.addEventListener('click', event => {
+            const input_list = document.getElementsByClassName('input-form');
+            let is_empty = false;
+            for (item of input_list) {
+                if (item.value == "") {
+                    is_empty = true;
+                }
+            }
+            if (is_empty) {
+                alert('Tá faltando algum campo, por getileza preencher tudo');
+            } else {
+                alert('Dados gravados com sucesso');
+            }
+            (async() => {
+                const email = document.getElementById('InputEmail');
+                const password = document.getElementById('InputSenha');
+                const name = document.getElementById('InputNome');
+
+                const rawResponse = await fetch('http://0.0.0.0:5000/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password,
+                        name,
+                    })
+                });
+                const content = await rawResponse.json();
+
+                console.log(content);
+            })();
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
